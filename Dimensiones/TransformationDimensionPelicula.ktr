@@ -75,14 +75,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>alquiler-videos</name>
+    <name>rent_films</name>
     <server>127.0.0.1</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>rent_films</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4a618a977d79dfd8e</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -130,7 +130,7 @@
     <database>dwh_rent_films</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4a618a977d79dfd8e</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -220,7 +220,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>alquiler-videos</connection>
+    <connection>rent_films</connection>
     <sql>SELECT film_id as original_pelicula_id, title as titulo, rental_duration as duracion_alquiler &#xd;&#xa;FROM film&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
