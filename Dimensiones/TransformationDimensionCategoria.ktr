@@ -138,7 +138,7 @@
            </partitioning>
       <schema/>
       <table>categoria</table>
-      <connection>rent_films</connection>
+      <connection>dwh_rent_films</connection>
       <commit>100</commit>
       <update>Y</update>
       <fields>
