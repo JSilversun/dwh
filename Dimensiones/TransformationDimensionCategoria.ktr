@@ -75,14 +75,38 @@
   <notepads>
   </notepads>
   <connection>
-    <name>alquiler-videos</name>
+    <name>dwh_rent_films</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>alquiler-videos</database>
+    <database>dwh_rent_films</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted </password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>rent_films</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>rent_films</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -114,7 +138,7 @@
            </partitioning>
       <schema/>
       <table>categoria</table>
-      <connection>alquiler-videos</connection>
+      <connection>rent_films</connection>
       <commit>100</commit>
       <update>Y</update>
       <fields>
@@ -133,7 +157,7 @@
           <update>Insert</update>
         </field>
         <return>
-          <name>idCategoria</name>
+          <name>id</name>
           <rename/>
           <creation_method>tablemax</creation_method>
           <use_autoinc>N</use_autoinc>
@@ -167,7 +191,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>alquiler-videos</connection>
+    <connection>rent_films</connection>
     <sql>SELECT category_id as original_categoria_id, name as nombre FROM category&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
