@@ -176,7 +176,7 @@
            <schema_name/>
            </partitioning>
     <connection>movie_rent</connection>
-    <sql>&#xd;&#xa;select rental_date&#x3a;&#x3a;date as fecha, &#xd;&#xa;date_part&#x28;&#x27;year&#x27;,rental_date&#x29; as anio, &#xd;&#xa;date_part&#x28;&#x27;month&#x27;,rental_date&#x29; as numero_mes,&#xd;&#xa;to_char&#x28;rental_date,&#x27;TMMonth&#x27;&#x29; as nombre_mes,&#xd;&#xa;date_part&#x28;&#x27;week&#x27;,rental_date&#x29; as semana,&#xd;&#xa;to_char&#x28;rental_date,&#x27;TMDay&#x27;&#x29; as nombre_dia&#xd;&#xa;from rental</sql>
+    <sql>select rental_date&#x3a;&#x3a;date as fecha, &#xd;&#xa;date_part&#x28;&#x27;year&#x27;,rental_date&#x29; as anio, &#xd;&#xa;date_part&#x28;&#x27;month&#x27;,rental_date&#x29; as numero_mes,&#xd;&#xa;to_char&#x28;rental_date,&#x27;TMMonth&#x27;&#x29; as nombre_mes,&#xd;&#xa;date_part&#x28;&#x27;week&#x27;,rental_date&#x29; as semana,&#xd;&#xa;to_char&#x28;rental_date,&#x27;TMDay&#x27;&#x29; as nombre_dia&#xd;&#xa;from rental&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
