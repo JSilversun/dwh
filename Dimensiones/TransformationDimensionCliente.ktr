@@ -156,7 +156,7 @@
           <update>Insert</update>
         </field>
         <return>
-          <name>id</name>
+          <name>idCliente</name>
           <rename/>
           <creation_method>tablemax</creation_method>
           <use_autoinc>N</use_autoinc>

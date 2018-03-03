@@ -6,7 +6,6 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -80,10 +79,10 @@
     <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>movie_rent</database>
+    <database>alquiler-videos</database>
     <port>5432</port>
     <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7b891f94cfe228dc1fa82</password>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -134,7 +133,7 @@
           <update>Insert</update>
         </field>
         <return>
-          <name>id</name>
+          <name>idCategoria</name>
           <rename/>
           <creation_method>tablemax</creation_method>
           <use_autoinc>N</use_autoinc>
