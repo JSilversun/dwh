@@ -6,9 +6,9 @@
     <job_version/>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;03&#x2f;04 13&#x3a;36&#x3a;03.402</created_date>
+  <created_date>2018&#x2f;03&#x2f;04 15&#x3a;15&#x3a;23.357</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;04 13&#x3a;36&#x3a;03.402</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;04 15&#x3a;15&#x3a;23.357</modified_date>
     <parameters>
     </parameters>
   <connection>
@@ -29,30 +29,6 @@
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
       <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>dwh</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>rent_films</name>
-    <server>127.0.0.1</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>rent_films</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -99,11 +75,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>125</xloc>
-      <yloc>200</yloc>
+      <xloc>100</xloc>
+      <yloc>175</yloc>
       </entry>
     <entry>
-      <name>Existe categoria</name>
+      <name>Existe Dim Categoria</name>
       <description/>
       <type>TABLE_EXISTS</type>
       <tablename>categoria</tablename>
@@ -112,14 +88,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>425</xloc>
-      <yloc>200</yloc>
+      <xloc>250</xloc>
+      <yloc>175</yloc>
       </entry>
     <entry>
-      <name>SQL categoria</name>
+      <name>SQL Categoria</name>
       <description/>
       <type>SQL</type>
-      <sql>CREATE TABLE dwh.categoria&#xd;&#xa;&#x28;&#xd;&#xa;  idCategoria BIGSERIAL&#xd;&#xa;, version INTEGER&#xd;&#xa;, date_from TIMESTAMP&#xd;&#xa;, date_to TIMESTAMP&#xd;&#xa;, original_categoria_id INTEGER&#xd;&#xa;, nombre VARCHAR&#x28;25&#x29;&#xd;&#xa;&#x29;&#xd;&#xa;&#x3b;CREATE INDEX idx_categoria_lookup ON dwh.categoria&#x28;original_categoria_id&#x29;&#xd;&#xa;&#x3b;&#xd;&#xa;CREATE INDEX idx_categoria_tk ON dwh.categoria&#x28;idCategoria&#x29;&#xd;&#xa;&#x3b;&#xd;&#xa;</sql>
+      <sql>CREATE TABLE dwh.categoria&#xd;&#xa;&#x28;&#xd;&#xa;  idCategoria BIGSERIAL&#xd;&#xa;, version INTEGER&#xd;&#xa;, date_from TIMESTAMP&#xd;&#xa;, date_to TIMESTAMP&#xd;&#xa;, original_categoria_id INTEGER&#xd;&#xa;, nombre VARCHAR&#x28;25&#x29;&#xd;&#xa;&#x29;&#x3b;</sql>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -128,127 +104,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>425</xloc>
-      <yloc>75</yloc>
-      </entry>
-    <entry>
-      <name>Transformation categoria</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionCategoria.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>425</xloc>
-      <yloc>325</yloc>
-      </entry>
-    <entry>
-      <name>Existe tiempo</name>
-      <description/>
-      <type>TABLE_EXISTS</type>
-      <tablename>tiempo</tablename>
-      <schemaname/>
-      <connection>dwh_rent_films</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>625</xloc>
-      <yloc>200</yloc>
-      </entry>
-    <entry>
-      <name>SQL tiempo</name>
-      <description/>
-      <type>SQL</type>
-      <sql>CREATE TABLE dwh.tiempo&#xd;&#xa;&#x28;&#xd;&#xa;  idTiempo BIGSERIAL,&#xd;&#xa;, fecha TIMESTAMP&#xd;&#xa;, anio DOUBLE PRECISION&#xd;&#xa;, numero_mes DOUBLE PRECISION&#xd;&#xa;, nombre_mes TEXT&#xd;&#xa;, semana DOUBLE PRECISION&#xd;&#xa;, nombre_dia TEXT&#xd;&#xa;&#x29;&#xd;&#xa;&#x3b;CREATE INDEX idx_tiempo_lookup ON dwh.tiempo&#x28;fecha&#x29;&#xd;&#xa;&#x3b;&#xd;&#xa;CREATE INDEX idx_tiempo_tk ON dwh.tiempo&#x28;idTiempo&#x29;&#xd;&#xa;&#x3b;&#xd;&#xa;</sql>
-      <useVariableSubstitution>F</useVariableSubstitution>
-      <sqlfromfile>F</sqlfromfile>
-      <sqlfilename/>
-      <sendOneStatement>F</sendOneStatement>
-      <connection>dwh_rent_films</connection>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>625</xloc>
-      <yloc>75</yloc>
-      </entry>
-    <entry>
-      <name>Transformation tiempo</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionTiempo.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>625</xloc>
-      <yloc>325</yloc>
+      <xloc>250</xloc>
+      <yloc>300</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>Existe categoria</from>
-      <to>SQL categoria</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Existe categoria</from>
-      <to>Transformation categoria</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>START</from>
-      <to>Existe categoria</to>
+      <to>Existe Dim Categoria</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -256,29 +119,11 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Existe tiempo</from>
-      <to>SQL tiempo</to>
+      <from>Existe Dim Categoria</from>
+      <to>SQL Categoria</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Existe categoria</from>
-      <to>Existe tiempo</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Existe tiempo</from>
-      <to>Transformation tiempo</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
