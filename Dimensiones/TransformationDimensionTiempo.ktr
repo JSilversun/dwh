@@ -116,6 +116,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>dwh</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -139,7 +140,7 @@
            </partitioning>
       <schema/>
       <table>tiempo</table>
-      <connection>dwh_rent_films</connection>
+      <connection>rent_films</connection>
       <commit>100</commit>
       <update>Y</update>
       <fields>
