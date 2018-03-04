@@ -69,7 +69,7 @@
   <created_date>2018&#x2f;03&#x2f;04 01&#x3a;00&#x3a;14.157</created_date>
   <modified_user>-</modified_user>
   <modified_date>2018&#x2f;03&#x2f;04 01&#x3a;00&#x3a;14.157</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -138,7 +138,7 @@
            <schema_name/>
            </partitioning>
     <connection>rent_films</connection>
-    <sql>select dt.idtiempo, t.idtienda, dc.idcategoria, count&#x28;&#x2a;&#x29; as cantidad&#xd;&#xa;from &#x28;&#xd;&#xa;	select s.store_id as store, &#xd;&#xa;		fc.category_id as category, &#xd;&#xa;		r.rental_date&#x3a;&#x3a;date as date, &#x2a; &#xd;&#xa;	from rental r join inventory i on &#x28;r.inventory_id &#x3d; i.inventory_id&#x29;&#xd;&#xa;	join store s on &#x28; i.store_id &#x3d; s.store_id &#x29;&#xd;&#xa;	join film_category fc on &#x28; fc.film_id &#x3d; i.film_id &#x29;&#xd;&#xa;	order by 1 asc, 2 asc, 3 asc&#xd;&#xa;     &#x29; as x&#xd;&#xa;join dwh.tiempo dt on &#x28; dt.fecha &#x3d; x.date &#x29;&#xd;&#xa;join dwh.tienda t on &#x28; t.original_tienda_id &#x3d; x.store &#x29;&#xd;&#xa;join dwh.categoria dc on &#x28; dc.original_categoria_id &#x3d; x.category &#x29;&#xd;&#xa;group by dt.idtiempo, t.idtienda, dc.idcategoria&#xd;&#xa;order by 1 asc, 2 asc, 3 asc&#x3b;</sql>
+    <sql>select dt.idtiempo, t.idtienda, dc.idcategoria, count&#x28;&#x2a;&#x29; as cantidad_alquiler&#xd;&#xa;from &#x28;&#xd;&#xa;	select s.store_id as store, &#xd;&#xa;		fc.category_id as category, &#xd;&#xa;		r.rental_date&#x3a;&#x3a;date as date, &#x2a; &#xd;&#xa;	from rental r join inventory i on &#x28;r.inventory_id &#x3d; i.inventory_id&#x29;&#xd;&#xa;	join store s on &#x28; i.store_id &#x3d; s.store_id &#x29;&#xd;&#xa;	join film_category fc on &#x28; fc.film_id &#x3d; i.film_id &#x29;&#xd;&#xa;	order by 1 asc, 2 asc, 3 asc&#xd;&#xa;     &#x29; as x&#xd;&#xa;join dwh.tiempo dt on &#x28; dt.fecha &#x3d; x.date &#x29;&#xd;&#xa;join dwh.tienda t on &#x28; t.original_tienda_id &#x3d; x.store &#x29;&#xd;&#xa;join dwh.categoria dc on &#x28; dc.original_categoria_id &#x3d; x.category &#x29;&#xd;&#xa;group by dt.idtiempo, t.idtienda, dc.idcategoria&#xd;&#xa;order by 1 asc, 2 asc, 3 asc&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -194,8 +194,8 @@
           <stream_name>idcategoria</stream_name>
         </field>
         <field>
-          <column_name>cantidad</column_name>
-          <stream_name>cantidad</stream_name>
+          <column_name>cantidad_alquiler</column_name>
+          <stream_name>cantidad_alquiler</stream_name>
         </field>
     </fields>
      <cluster_schema/>
