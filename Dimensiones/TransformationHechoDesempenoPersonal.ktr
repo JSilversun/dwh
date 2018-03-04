@@ -138,7 +138,7 @@
            <schema_name/>
            </partitioning>
     <connection>rent_films</connection>
-    <sql>select dp.idpersonal as personal_id, dt.idtiempopago as tiempo_id, desempenno.fecha&#x3a;&#x3a;date, &#xd;&#xa;sum&#x28;&#x28;CASE WHEN &#x28;desempenno.pago &#x3d; 0 and desempenno.renta&#x3c;&#x3e;-1&#x29; THEN 1 ELSE 0 END&#x29;&#x29; as cantidad_alquiler,&#xd;&#xa;sum&#x28;desempenno.pago&#x29; as monto_alquiler from&#xd;&#xa;&#x28;select rental_date as fecha, staff_id as staff, 0 as pago, rental_id as renta from rental union &#xd;&#xa;&#x28;select payment_date, staff_id, amount, -1 from payment&#x29;&#x29; as desempenno&#xd;&#xa;join dwh.personal dp on&#x28;desempenno.staff&#x3d;dp.original_personal_id&#x29;&#xd;&#xa;join dwh.tiempopago dt on&#x28;desempenno.fecha&#x3a;&#x3a;date&#x3d;dt.fecha&#x29;&#xd;&#xa;group by dp.idpersonal, dt.idtiempopago, desempenno.fecha&#x3a;&#x3a;date order by desempenno.fecha&#x3a;&#x3a;date&#x3b;</sql>
+    <sql>select dp.idpersonal as personal_id, dt.idtiempopago as tiempopago_id, desempenno.fecha&#x3a;&#x3a;date, &#xd;&#xa;sum&#x28;&#x28;CASE WHEN &#x28;desempenno.pago &#x3d; 0 and desempenno.renta&#x3c;&#x3e;-1&#x29; THEN 1 ELSE 0 END&#x29;&#x29; as cantidad_alquiler,&#xd;&#xa;sum&#x28;desempenno.pago&#x29; as monto_alquiler from&#xd;&#xa;&#x28;select rental_date as fecha, staff_id as staff, 0 as pago, rental_id as renta from rental union &#xd;&#xa;&#x28;select payment_date, staff_id, amount, -1 from payment&#x29;&#x29; as desempenno&#xd;&#xa;join dwh.personal dp on&#x28;desempenno.staff&#x3d;dp.original_personal_id&#x29;&#xd;&#xa;join dwh.tiempopago dt on&#x28;desempenno.fecha&#x3a;&#x3a;date&#x3d;dt.fecha&#x29;&#xd;&#xa;group by dp.idpersonal, dt.idtiempopago, desempenno.fecha&#x3a;&#x3a;date order by desempenno.fecha&#x3a;&#x3a;date&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -186,8 +186,12 @@
           <stream_name>personal_id</stream_name>
         </field>
         <field>
-          <column_name>tiempo_id</column_name>
-          <stream_name>tiempo_id</stream_name>
+          <column_name>tiempopago_id</column_name>
+          <stream_name>tiempopago_id</stream_name>
+        </field>
+        <field>
+          <column_name>fecha</column_name>
+          <stream_name>fecha</stream_name>
         </field>
         <field>
           <column_name>cantidad_alquiler</column_name>
