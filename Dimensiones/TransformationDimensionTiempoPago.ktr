@@ -127,6 +127,32 @@
   <hop> <from>Campo rental_date U payment_date</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>Campo rental_date U payment_date</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>rent_films</connection>
+    <sql>select DISTINCT fecha&#x3a;&#x3a;date as fecha, &#xd;&#xa;date_part&#x28;&#x27;year&#x27;,fecha&#x29; as anio, &#xd;&#xa;date_part&#x28;&#x27;month&#x27;,fecha&#x29; as numero_mes,&#xd;&#xa;to_char&#x28;fecha,&#x27;TMMonth&#x27;&#x29; as nombre_mes,&#xd;&#xa;date_part&#x28;&#x27;week&#x27;,fecha&#x29; as semana,&#xd;&#xa;to_char&#x28;fecha,&#x27;TMDay&#x27;&#x29; as nombre_dia&#xd;&#xa;from &#x28;select rental_date as fecha from rental union &#x28;select payment_date as fecha from payment&#x29;&#x29;x&#x3b;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>176</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Dimension lookup&#x2f;update</name>
     <type>DimensionLookup</type>
     <description/>
@@ -196,32 +222,6 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>352</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Campo rental_date U payment_date</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>rent_films</connection>
-    <sql>select fecha&#x3a;&#x3a;date as fecha, &#xd;&#xa;date_part&#x28;&#x27;year&#x27;,fecha&#x29; as anio, &#xd;&#xa;date_part&#x28;&#x27;month&#x27;,fecha&#x29; as numero_mes,&#xd;&#xa;to_char&#x28;fecha,&#x27;TMMonth&#x27;&#x29; as nombre_mes,&#xd;&#xa;date_part&#x28;&#x27;week&#x27;,fecha&#x29; as semana,&#xd;&#xa;to_char&#x28;fecha,&#x27;TMDay&#x27;&#x29; as nombre_dia&#xd;&#xa;from &#x28;select rental_date as fecha from rental union &#x28;select payment_date as fecha from payment&#x29;&#x29;x&#x3b;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>176</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>

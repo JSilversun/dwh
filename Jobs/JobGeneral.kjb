@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job>
+  <name>JobGeneral</name>
+    <description/>
+    <extended_description/>
+    <job_version/>
+  <directory>&#x2f;</directory>
+  <created_user>-</created_user>
+  <created_date>2018&#x2f;03&#x2f;04 14&#x3a;43&#x3a;39.834</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2018&#x2f;03&#x2f;04 14&#x3a;43&#x3a;39.834</modified_date>
+    <parameters>
+    </parameters>
+  <connection>
+    <name>dwh_rent_films</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>rent_films</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>dwh</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+    <slaveservers>
+    </slaveservers>
+<job-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
+<jobentry-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>JOBENTRYNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>RESULT</id><enabled>Y</enabled><name>RESULT</name></field><field><id>NR_RESULT_ROWS</id><enabled>Y</enabled><name>NR_RESULT_ROWS</name></field><field><id>NR_RESULT_FILES</id><enabled>Y</enabled><name>NR_RESULT_FILES</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field><field><id>COPY_NR</id><enabled>N</enabled><name>COPY_NR</name></field></jobentry-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+   <pass_batchid>N</pass_batchid>
+   <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>48</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim tiempo</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>tiempo</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>176</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim Categoria</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>categoria</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>352</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim Ciudad</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>ciudad</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>176</xloc>
+      <yloc>288</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim cliente</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>cliente</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>352</xloc>
+      <yloc>288</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim pelicula</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>pelicula</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>528</xloc>
+      <yloc>288</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim personal</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>personal</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>528</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim tienda</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>tienda</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Existe Dim tiempopago</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>tiempopago</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>288</yloc>
+      </entry>
+    <entry>
+      <name>SQL tiempo</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.tiempo&#xd;&#xa;&#x28;&#xd;&#xa;  idtiempo bigserial NOT NULL,&#xd;&#xa;  version integer,&#xd;&#xa;  date_from timestamp without time zone,&#xd;&#xa;  date_to timestamp without time zone,&#xd;&#xa;  fecha timestamp without time zone,&#xd;&#xa;  anio double precision,&#xd;&#xa;  numero_mes double precision,&#xd;&#xa;  nombre_mes text,&#xd;&#xa;  semana double precision,&#xd;&#xa;  nombre_dia text&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>144</xloc>
+      <yloc>176</yloc>
+      </entry>
+    <entry>
+      <name>SQL categoria</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.categoria&#xd;&#xa;&#x28;&#xd;&#xa;  idcategoria bigserial NOT NULL,&#xd;&#xa;  version integer,&#xd;&#xa;  date_from timestamp without time zone,&#xd;&#xa;  date_to timestamp without time zone,&#xd;&#xa;  original_categoria_id integer,&#xd;&#xa;  nombre character varying&#x28;25&#x29;&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>176</yloc>
+      </entry>
+    <entry>
+      <name>SQL personal</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.personal&#xd;&#xa;&#x28;&#xd;&#xa;    idpersonal bigserial NOT NULL,&#xd;&#xa;    version integer,&#xd;&#xa;    date_from timestamp without time zone,&#xd;&#xa;    date_to timestamp without time zone,&#xd;&#xa;    original_personal_id integer,&#xd;&#xa;    nombre text,&#xd;&#xa;    correo character varying&#x28;50&#x29;,&#xd;&#xa;    activo boolean&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>480</xloc>
+      <yloc>176</yloc>
+      </entry>
+    <entry>
+      <name>SQL tienda</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.tienda&#xd;&#xa;&#x28;&#xd;&#xa;  idtienda bigserial NOT NULL,&#xd;&#xa;  version integer,&#xd;&#xa;  date_from timestamp without time zone,&#xd;&#xa;  date_to timestamp without time zone,&#xd;&#xa;  original_tienda_id integer,&#xd;&#xa;  gerente_id smallint,&#xd;&#xa;  direccion_id integer,&#xd;&#xa;  direccion character varying&#x28;50&#x29;,&#xd;&#xa;  ciudad character varying&#x28;50&#x29;&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>624</xloc>
+      <yloc>176</yloc>
+      </entry>
+    <entry>
+      <name>SQL ciudad</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.ciudad&#xd;&#xa;&#x28;&#xd;&#xa;    idciudad bigserial NOT NULL,&#xd;&#xa;    version integer,&#xd;&#xa;    date_from timestamp without time zone,&#xd;&#xa;    date_to timestamp without time zone,&#xd;&#xa;    original_ciudad_id integer,&#xd;&#xa;    ciudad character varying&#x28;50&#x29;,&#xd;&#xa;    pais_id integer,&#xd;&#xa;    pais character varying&#x28;50&#x29;&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>176</xloc>
+      <yloc>384</yloc>
+      </entry>
+    <entry>
+      <name>SQL cliente</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.cliente&#xd;&#xa;&#x28;&#xd;&#xa;    idcliente bigserial NOT NULL,&#xd;&#xa;    version integer,&#xd;&#xa;    date_from timestamp without time zone,&#xd;&#xa;    date_to timestamp without time zone,&#xd;&#xa;    original_cliente_id integer,&#xd;&#xa;    nombre text,&#xd;&#xa;    correo character varying&#x28;50&#x29;&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>352</xloc>
+      <yloc>384</yloc>
+      </entry>
+    <entry>
+      <name>SQL pelicula</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.pelicula&#xd;&#xa;&#x28;&#xd;&#xa;    idpelicula bigserial NOT NULL,&#xd;&#xa;    version integer,&#xd;&#xa;    date_from timestamp without time zone,&#xd;&#xa;    date_to timestamp without time zone,&#xd;&#xa;    original_pelicula_id integer,&#xd;&#xa;    titulo character varying&#x28;255&#x29;,&#xd;&#xa;    duracion_alquiler smallint&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>528</xloc>
+      <yloc>384</yloc>
+      </entry>
+    <entry>
+      <name>SQL tiempopago</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.tiempopago&#xd;&#xa;&#x28;&#xd;&#xa;    idtiempopago bigserial NOT NULL,&#xd;&#xa;    version integer,&#xd;&#xa;    date_from timestamp without time zone,&#xd;&#xa;    date_to timestamp without time zone,&#xd;&#xa;    fecha timestamp without time zone,&#xd;&#xa;    anio double precision,&#xd;&#xa;    numero_mes double precision,&#xd;&#xa;    nombre_mes text,&#xd;&#xa;    semana double precision,&#xd;&#xa;    nombre_dia text&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>384</yloc>
+      </entry>
+    <entry>
+      <name>Dim Tiempo</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionTiempo.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>64</xloc>
+      <yloc>288</yloc>
+      </entry>
+    <entry>
+      <name>Dim Categoria</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionCategoria.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>64</xloc>
+      <yloc>416</yloc>
+      </entry>
+    <entry>
+      <name>Dim personal</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionPersonal.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>64</xloc>
+      <yloc>544</yloc>
+      </entry>
+    <entry>
+      <name>Dim tienda</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionTienda.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>208</xloc>
+      <yloc>544</yloc>
+      </entry>
+    <entry>
+      <name>Dim tiempopago</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionTiempoPago.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>336</xloc>
+      <yloc>544</yloc>
+      </entry>
+    <entry>
+      <name>Dim pelicula</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionPelicula.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>464</xloc>
+      <yloc>544</yloc>
+      </entry>
+    <entry>
+      <name>Dim cliente</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionCliente.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>544</yloc>
+      </entry>
+    <entry>
+      <name>dim Ciudad</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Dimensiones&#x5c;TransformationDimensionCiudad.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>736</xloc>
+      <yloc>544</yloc>
+      </entry>
+    <entry>
+      <name>Existe hecho alquiler</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>alquiler</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>736</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Existe hecho alquiler gusto</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>alquilergustos</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Hecho alquiler tienda</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>AlquilerTiendas</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Hecho desempeno personal</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>hechos_desempeno</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Hecho inventario</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>hechos_inventario</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>144</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>SQL alquiler</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.alquiler&#xd;&#xa;&#x28;&#xd;&#xa;  tiempo_id BIGINT&#xd;&#xa;, categoria_id BIGINT&#xd;&#xa;, cantidad_dias BIGINT&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>736</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL alquiler gusto</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.alquilergustos&#xd;&#xa;&#x28;&#xd;&#xa;  tiempo_id BIGINT&#xd;&#xa;, cliente_id BIGINT&#xd;&#xa;, ciudad_id BIGINT&#xd;&#xa;, categoria_id BIGINT&#xd;&#xa;, cantidad_alquiler BIGINT&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL AlquilerTiendas</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.AlquilerTiendas&#xd;&#xa;&#x28;&#xd;&#xa;  idtiempo BIGINT&#xd;&#xa;, idtienda BIGINT&#xd;&#xa;, idcategoria BIGINT&#xd;&#xa;, cantidad_alquiler BIGINT&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL hechos_desempeno</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.hechos_desempeno&#xd;&#xa;&#x28;&#xd;&#xa;    personal_id bigint,&#xd;&#xa;    tiempopago_id bigint,&#xd;&#xa;    cantidad_alquiler bigint,&#xd;&#xa;    monto_alquiler double precision&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL hechos_inventario</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.hechos_inventario&#xd;&#xa;&#x28;&#xd;&#xa;  fecha TIMESTAMP&#xd;&#xa;, idpelicula INTEGER&#xd;&#xa;, cantidad_alquileres INTEGER&#xd;&#xa;, cantidad_peliculas_disponibles INTEGER&#xd;&#xa;, proporcion DOUBLE PRECISION&#xd;&#xa;, cantidad_incidencias INTEGER&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>144</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>Transformation Alquiler</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Hechos&#x5c;TransformationHechoAlquiler.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>48</xloc>
+      <yloc>832</yloc>
+      </entry>
+    <entry>
+      <name>Transformation Alquiler Gusto</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Hechos&#x5c;TransformationHechoAlquilerGustos.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>240</xloc>
+      <yloc>832</yloc>
+      </entry>
+    <entry>
+      <name>Transformation Alquiler Tiendas</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Hechos&#x5c;TransformationHechoAlquilerTiendas.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>416</xloc>
+      <yloc>832</yloc>
+      </entry>
+    <entry>
+      <name>Transformation Desempeno personal</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>C&#x3a;&#x5c;Users&#x5c;Yuleidy&#x5c;Documents&#x5c;7mo Semestre&#x5c;Base de Datos II&#x5c;I Parcial&#x5c;Proyecto&#x5c;dwh&#x5c;Hechos&#x5c;TransformationHechoDesempenoPersonal.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>832</yloc>
+      </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>784</xloc>
+      <yloc>832</yloc>
+      </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>START</from>
+      <to>Existe Dim tiempo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim tiempo</from>
+      <to>Existe Dim Categoria</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim Categoria</from>
+      <to>Existe Dim personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim personal</from>
+      <to>Existe Dim tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim tienda</from>
+      <to>Existe Dim tiempopago</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim tiempopago</from>
+      <to>Existe Dim pelicula</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim pelicula</from>
+      <to>Existe Dim cliente</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim cliente</from>
+      <to>Existe Dim Ciudad</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim tiempo</from>
+      <to>SQL tiempo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL tiempo</from>
+      <to>Existe Dim Categoria</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim Categoria</from>
+      <to>SQL categoria</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL categoria</from>
+      <to>Existe Dim personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim personal</from>
+      <to>SQL personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL personal</from>
+      <to>Existe Dim tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim tienda</from>
+      <to>SQL tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL tienda</from>
+      <to>Existe Dim tiempopago</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim tiempopago</from>
+      <to>SQL tiempopago</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL tiempopago</from>
+      <to>Existe Dim pelicula</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim pelicula</from>
+      <to>SQL pelicula</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL pelicula</from>
+      <to>Existe Dim cliente</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim cliente</from>
+      <to>SQL cliente</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL cliente</from>
+      <to>Existe Dim Ciudad</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim Ciudad</from>
+      <to>SQL ciudad</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe Dim Ciudad</from>
+      <to>Dim Tiempo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL ciudad</from>
+      <to>Dim Tiempo</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim Tiempo</from>
+      <to>Dim Categoria</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim Categoria</from>
+      <to>Dim personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim personal</from>
+      <to>Dim tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim tienda</from>
+      <to>Dim tiempopago</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim tiempopago</from>
+      <to>Dim pelicula</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim pelicula</from>
+      <to>Dim cliente</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Dim cliente</from>
+      <to>dim Ciudad</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>dim Ciudad</from>
+      <to>Existe hecho alquiler</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler</from>
+      <to>Existe hecho alquiler gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler</from>
+      <to>SQL alquiler</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL alquiler</from>
+      <to>Existe hecho alquiler gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler gusto</from>
+      <to>Hecho alquiler tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler gusto</from>
+      <to>SQL alquiler gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL alquiler gusto</from>
+      <to>Hecho alquiler tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho alquiler tienda</from>
+      <to>Hecho desempeno personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho alquiler tienda</from>
+      <to>SQL AlquilerTiendas</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL AlquilerTiendas</from>
+      <to>Hecho desempeno personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho desempeno personal</from>
+      <to>Hecho inventario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho desempeno personal</from>
+      <to>SQL hechos_desempeno</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL hechos_desempeno</from>
+      <to>Hecho inventario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho inventario</from>
+      <to>SQL hechos_inventario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho inventario</from>
+      <to>Transformation Alquiler</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL hechos_inventario</from>
+      <to>Transformation Alquiler</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Alquiler</from>
+      <to>Transformation Alquiler Gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Alquiler Gusto</from>
+      <to>Transformation Alquiler Tiendas</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Alquiler Tiendas</from>
+      <to>Transformation Desempeno personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Desempeno personal</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+  </notepads>
+
+</job>
