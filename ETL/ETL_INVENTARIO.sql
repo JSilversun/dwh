@@ -1,4 +1,4 @@
-drop function inventario_hechos();
+﻿drop function if exists inventario_hechos();
 CREATE OR REPLACE FUNCTION inventario_hechos() RETURNS SETOF RECORD AS $$
 
 DECLARE 
