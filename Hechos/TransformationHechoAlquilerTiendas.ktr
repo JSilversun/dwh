@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TransformationDimensionPelicula</name>
+    <name>TransformationHechoAlquilerTiendas</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,10 +66,10 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;03&#x2f;03 17&#x3a;47&#x3a;15.837</created_date>
+  <created_date>2018&#x2f;03&#x2f;04 01&#x3a;00&#x3a;14.157</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;03 17&#x3a;47&#x3a;15.837</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2018&#x2f;03&#x2f;04 01&#x3a;00&#x3a;14.157</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -124,70 +124,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Tabla Films</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Tabla Alquiler Tiendas</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Dimension lookup&#x2f;update</name>
-    <type>DimensionLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <schema/>
-      <table>pelicula</table>
-      <connection>dwh_rent_films</connection>
-      <commit>100</commit>
-      <update>Y</update>
-      <fields>
-        <key>
-          <name>original_pelicula_id</name>
-          <lookup>original_pelicula_id</lookup>
-        </key>
-        <date>
-          <name/>
-          <from>date_from</from>
-          <to>date_to</to>
-        </date>
-        <field>
-          <name>titulo</name>
-          <lookup>titulo</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>duracion_alquiler</name>
-          <lookup>duracion_alquiler</lookup>
-          <update>Insert</update>
-        </field>
-        <return>
-          <name>idPelicula</name>
-          <rename/>
-          <creation_method>tablemax</creation_method>
-          <use_autoinc>N</use_autoinc>
-          <version>version</version>
-        </return>
-      </fields>
-      <sequence/>
-      <min_year>1900</min_year>
-      <max_year>2199</max_year>
-      <cache_size>-1</cache_size>
-      <preload_cache>N</preload_cache>
-      <use_start_date_alternative>N</use_start_date_alternative>
-      <start_date_alternative>none</start_date_alternative>
-      <start_date_field_name/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>336</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Tabla Films</name>
+    <name>Tabla Alquiler Tiendas</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -198,7 +138,7 @@
            <schema_name/>
            </partitioning>
     <connection>rent_films</connection>
-    <sql>SELECT film_id as original_pelicula_id, title as titulo, rental_duration as duracion_alquiler &#xd;&#xa;FROM film&#x3b;</sql>
+    <sql>select dt.idtiempo, t.idtienda, dc.idcategoria, count&#x28;&#x2a;&#x29; as cantidad&#xd;&#xa;from &#x28;&#xd;&#xa;	select s.store_id as store, &#xd;&#xa;		fc.category_id as category, &#xd;&#xa;		r.rental_date&#x3a;&#x3a;date as date, &#x2a; &#xd;&#xa;	from rental r join inventory i on &#x28;r.inventory_id &#x3d; i.inventory_id&#x29;&#xd;&#xa;	join store s on &#x28; i.store_id &#x3d; s.store_id &#x29;&#xd;&#xa;	join film_category fc on &#x28; fc.film_id &#x3d; i.film_id &#x29;&#xd;&#xa;	order by 1 asc, 2 asc, 3 asc&#xd;&#xa;     &#x29; as x&#xd;&#xa;join dwh.tiempo dt on &#x28; dt.fecha &#x3d; x.date &#x29;&#xd;&#xa;join dwh.tienda t on &#x28; t.original_tienda_id &#x3d; x.store &#x29;&#xd;&#xa;join dwh.categoria dc on &#x28; dc.original_categoria_id &#x3d; x.category &#x29;&#xd;&#xa;group by dt.idtiempo, t.idtienda, dc.idcategoria&#xd;&#xa;order by 1 asc, 2 asc, 3 asc&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -207,7 +147,61 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>150</xloc>
-      <yloc>225</yloc>
+      <yloc>200</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwh_rent_films</connection>
+    <schema/>
+    <table>AlquilerTiendas</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>idtiempo</column_name>
+          <stream_name>idtiempo</stream_name>
+        </field>
+        <field>
+          <column_name>idtienda</column_name>
+          <stream_name>idtienda</stream_name>
+        </field>
+        <field>
+          <column_name>idcategoria</column_name>
+          <stream_name>idcategoria</stream_name>
+        </field>
+        <field>
+          <column_name>cantidad</column_name>
+          <stream_name>cantidad</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>500</xloc>
+      <yloc>200</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
