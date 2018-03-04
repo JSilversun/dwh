@@ -124,7 +124,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Tabla Alquiler Tiendas</from><to>Hecho AlquilerTiendas</to><enabled>Y</enabled> </hop>
+  <hop> <from>Alquiler por Tiendas &#x28;nuevo&#x29;</from><to>Hecho AlquilerTiendas</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Hecho AlquilerTiendas</name>
@@ -181,7 +181,7 @@
     </step>
 
   <step>
-    <name>Tabla Alquiler Tiendas</name>
+    <name>Alquiler por Tiendas &#x28;nuevo&#x29;</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
