@@ -244,8 +244,6 @@
       <key>categoria_id</key>
     </keys>
     <values>
-      <value>tiempo_id</value>
-      <value>categoria_id</value>
       <value>cantidad_dias</value>
     </values>
 <flag_field>flagfield</flag_field>
