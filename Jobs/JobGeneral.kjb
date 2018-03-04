@@ -575,14 +575,159 @@
       <yloc>544</yloc>
       </entry>
     <entry>
+      <name>Existe hecho alquiler</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>alquiler</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>736</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Existe hecho alquiler gusto</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>alquilergustos</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Hecho alquiler tienda</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>AlquilerTiendas</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Hecho desempeno personal</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>hechos_desempeno</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>Hecho inventario</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <tablename>hechos_inventario</tablename>
+      <schemaname>dwh</schemaname>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>144</xloc>
+      <yloc>640</yloc>
+      </entry>
+    <entry>
+      <name>SQL alquiler</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.alquiler&#xd;&#xa;&#x28;&#xd;&#xa;  tiempo_id BIGINT&#xd;&#xa;, categoria_id BIGINT&#xd;&#xa;, cantidad_dias BIGINT&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>736</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL alquiler gusto</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.alquilergustos&#xd;&#xa;&#x28;&#xd;&#xa;  tiempo_id BIGINT&#xd;&#xa;, cliente_id BIGINT&#xd;&#xa;, ciudad_id BIGINT&#xd;&#xa;, categoria_id BIGINT&#xd;&#xa;, cantidad_alquiler BIGINT&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL AlquilerTiendas</name>
+      <description/>
+      <type>SQL</type>
+      <sql>SQL executed&#x3a; CREATE TABLE dwh.AlquilerTiendas&#xd;&#xa;&#x28;&#xd;&#xa;  idtiempo BIGINT&#xd;&#xa;, idtienda BIGINT&#xd;&#xa;, idcategoria BIGINT&#xd;&#xa;, cantidad_alquiler BIGINT&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>448</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL hechos_desempeno</name>
+      <description/>
+      <type>SQL</type>
+      <sql>CREATE TABLE dwh.hechos_desempeno&#xd;&#xa;&#x28;&#xd;&#xa;    personal_id bigint,&#xd;&#xa;    tiempopago_id bigint,&#xd;&#xa;    cantidad_alquiler bigint,&#xd;&#xa;    monto_alquiler double precision&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>288</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
+      <name>SQL hechos_inventario</name>
+      <description/>
+      <type>SQL</type>
+      <sql>SQL executed&#x3a; CREATE TABLE dwh.hechos_inventario&#xd;&#xa;&#x28;&#xd;&#xa;  fecha TIMESTAMP&#xd;&#xa;, idpelicula INTEGER&#xd;&#xa;, cantidad_alquileres INTEGER&#xd;&#xa;, cantidad_peliculas_disponibles INTEGER&#xd;&#xa;, proporcion DOUBLE PRECISION&#xd;&#xa;, cantidad_incidencias INTEGER&#xd;&#xa;&#x29;&#x3b;</sql>
+      <useVariableSubstitution>F</useVariableSubstitution>
+      <sqlfromfile>F</sqlfromfile>
+      <sqlfilename/>
+      <sendOneStatement>F</sendOneStatement>
+      <connection>dwh_rent_films</connection>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>144</xloc>
+      <yloc>736</yloc>
+      </entry>
+    <entry>
       <name>Success</name>
       <description/>
       <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>544</yloc>
+      <xloc>48</xloc>
+      <yloc>640</yloc>
       </entry>
   </entries>
   <hops>
@@ -876,6 +1021,141 @@
     </hop>
     <hop>
       <from>dim Ciudad</from>
+      <to>Existe hecho alquiler</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler</from>
+      <to>Existe hecho alquiler gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler</from>
+      <to>SQL alquiler</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL alquiler</from>
+      <to>Existe hecho alquiler gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler gusto</from>
+      <to>Hecho alquiler tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Existe hecho alquiler gusto</from>
+      <to>SQL alquiler gusto</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL alquiler gusto</from>
+      <to>Hecho alquiler tienda</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho alquiler tienda</from>
+      <to>Hecho desempeno personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho alquiler tienda</from>
+      <to>SQL AlquilerTiendas</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL AlquilerTiendas</from>
+      <to>Hecho desempeno personal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho desempeno personal</from>
+      <to>Hecho inventario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho desempeno personal</from>
+      <to>SQL hechos_desempeno</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL hechos_desempeno</from>
+      <to>Hecho inventario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho inventario</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Hecho inventario</from>
+      <to>SQL hechos_inventario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL hechos_inventario</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
