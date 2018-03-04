@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TransformationDimensionTiempo</name>
+    <name>TransformationActualizarInventario</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -67,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;03&#x2f;03 17&#x3a;17&#x3a;07.276</created_date>
+  <created_date>2018&#x2f;03&#x2f;04 16&#x3a;15&#x3a;24.377</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;03 17&#x3a;17&#x3a;07.276</modified_date>
+  <modified_date>2018&#x2f;03&#x2f;04 16&#x3a;15&#x3a;24.377</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -100,36 +99,15 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
-  <connection>
-    <name>rent_films</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>rent_films</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>PREFERRED_SCHEMA_NAME</code><attribute>dwh</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>Campo rental_date</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Actualizar nuevos</from><to>Nuevos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Inventario</from><to>Existentes</to><enabled>Y</enabled> </hop>
+  <hop> <from>Existentes</from><to>Merge Rows &#x28;diff&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Rows &#x28;diff&#x29;</from><to>Synchronize after merge</to><enabled>Y</enabled> </hop>
+  <hop> <from>Nuevos</from><to>Merge Rows &#x28;diff&#x29;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Campo rental_date</name>
+    <name>Actualizar nuevos</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -139,8 +117,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>rent_films</connection>
-    <sql>select distinct rental_date&#x3a;&#x3a;date as fecha, &#xd;&#xa;date_part&#x28;&#x27;year&#x27;,rental_date&#x3a;&#x3a;date&#x29; as anio, &#xd;&#xa;date_part&#x28;&#x27;month&#x27;,rental_date&#x3a;&#x3a;date&#x29; as numero_mes,&#xd;&#xa;to_char&#x28;rental_date&#x3a;&#x3a;date,&#x27;TMMonth&#x27;&#x29; as nombre_mes,&#xd;&#xa;date_part&#x28;&#x27;week&#x27;,rental_date&#x3a;&#x3a;date&#x29; as semana,&#xd;&#xa;to_char&#x28;rental_date&#x3a;&#x3a;date,&#x27;TMDay&#x27;&#x29; as nombre_dia&#xd;&#xa;from rental&#x3b;</sql>
+    <connection>dwh_rent_films</connection>
+    <sql>select &#x2a; from inventario_hechos&#x28;&#x29; as x&#x28;tiempo_id int ,pelicula_id int, cantidad_alquileres int, cantidad_peliculas_disponibles int, proporcion float, cantidad_incidencias int&#x29;&#x3b;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -148,15 +126,15 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>50</xloc>
-      <yloc>100</yloc>
+      <xloc>150</xloc>
+      <yloc>350</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Dimension lookup&#x2f;update</name>
-    <type>DimensionLookup</type>
+    <name>Existentes</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -165,66 +143,234 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <schema/>
-      <table>tiempo</table>
-      <connection>rent_films</connection>
-      <commit>100</commit>
-      <update>Y</update>
-      <fields>
-        <key>
-          <name>fecha</name>
-          <lookup>fecha</lookup>
-        </key>
-        <date>
-          <name/>
-          <from>date_from</from>
-          <to>date_to</to>
-        </date>
-        <field>
-          <name>anio</name>
-          <lookup>anio</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>numero_mes</name>
-          <lookup>numero_mes</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>nombre_mes</name>
-          <lookup>nombre_mes</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>semana</name>
-          <lookup>semana</lookup>
-          <update>Insert</update>
-        </field>
-        <field>
-          <name>nombre_dia</name>
-          <lookup>nombre_dia</lookup>
-          <update>Insert</update>
-        </field>
-        <return>
-          <name>idTiempo</name>
-          <rename/>
-          <creation_method>tablemax</creation_method>
-          <use_autoinc>N</use_autoinc>
-          <version>version</version>
-        </return>
-      </fields>
-      <sequence/>
-      <min_year>1900</min_year>
-      <max_year>2199</max_year>
-      <cache_size>5000</cache_size>
-      <preload_cache>N</preload_cache>
-      <use_start_date_alternative>N</use_start_date_alternative>
-      <start_date_alternative>none</start_date_alternative>
-      <start_date_field_name/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>tiempo_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>pelicula_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cantidad_alquileres</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cantidad_peliculas_disponibles</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>proporcion</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cantidad_incidencias</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>250</xloc>
-      <yloc>100</yloc>
+      <xloc>350</xloc>
+      <yloc>225</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Inventario</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwh_rent_films</connection>
+    <sql>SELECT&#xd;&#xa;	tiempo_id,&#xd;&#xa;	pelicula_id,&#xd;&#xa;	cantidad_alquileres,&#xd;&#xa;	cantidad_peliculas_disponibles,&#xd;&#xa;	proporcion,&#xd;&#xa;	cantidad_incidencias&#xd;&#xa;FROM dwh.hechos_inventario&#xd;&#xa;	</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>150</xloc>
+      <yloc>225</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Rows &#x28;diff&#x29;</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <keys>
+      <key>tiempo_id</key>
+      <key>pelicula_id</key>
+    </keys>
+    <values>
+      <value>cantidad_alquileres</value>
+      <value>cantidad_peliculas_disponibles</value>
+      <value>proporcion</value>
+      <value>cantidad_incidencias</value>
+    </values>
+<flag_field>flagfield</flag_field>
+<reference>Existentes</reference>
+<compare>Nuevos</compare>
+    <compare>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>525</xloc>
+      <yloc>300</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Nuevos</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>tiempo_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>pelicula_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cantidad_alquileres</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cantidad_peliculas_disponibles</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>proporcion</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cantidad_incidencias</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>350</xloc>
+      <yloc>350</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Synchronize after merge</name>
+    <type>SynchronizeAfterMerge</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwh_rent_films</connection>
+    <commit>100</commit>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <use_batch>N</use_batch>
+    <perform_lookup>N</perform_lookup>
+    <operation_order_field>flagfield</operation_order_field>
+    <order_insert>new</order_insert>
+    <order_update>changed</order_update>
+    <order_delete>deleted</order_delete>
+    <lookup>
+      <schema/>
+      <table>hechos_inventario</table>
+      <key>
+        <name>tiempo_id</name>
+        <field>tiempo_id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>pelicula_id</name>
+        <field>pelicula_id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>tiempo_id</name>
+        <rename>tiempo_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pelicula_id</name>
+        <rename>pelicula_id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>700</xloc>
+      <yloc>300</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
