@@ -124,7 +124,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Tabla Staff</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Dimension lookup&#x2f;update</name>
@@ -192,7 +192,7 @@
     </step>
 
   <step>
-    <name>Table input</name>
+    <name>Tabla Staff</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>

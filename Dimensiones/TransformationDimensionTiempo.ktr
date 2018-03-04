@@ -126,7 +126,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table input</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Campo rental_date</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Dimension lookup&#x2f;update</name>
@@ -204,7 +204,7 @@
     </step>
 
   <step>
-    <name>Table input</name>
+    <name>Campo rental_date</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>

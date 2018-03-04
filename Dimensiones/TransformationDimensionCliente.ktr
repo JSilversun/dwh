@@ -124,7 +124,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Tabla Cliente</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Tabla Customer</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Dimension lookup&#x2f;update</name>
@@ -180,14 +180,14 @@
       <start_date_field_name/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>336</xloc>
-      <yloc>128</yloc>
+      <xloc>350</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Tabla Cliente</name>
+    <name>Tabla Customer</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
