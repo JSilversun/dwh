@@ -50,7 +50,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>75</xloc>
+      <xloc>125</xloc>
       <yloc>100</yloc>
       </entry>
     <entry>
@@ -183,7 +183,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>600</xloc>
-      <yloc>275</yloc>
+      <yloc>225</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -193,7 +193,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>600</xloc>
-      <yloc>450</yloc>
+      <yloc>350</yloc>
       </entry>
   </entries>
   <hops>
