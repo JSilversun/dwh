@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>TransformationHechoDesempenoPersonal</name>
+    <name>TransformationActualizarDesempanoPersonal</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,10 +66,10 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;03&#x2f;04 00&#x3a;11&#x3a;22.705</created_date>
+  <created_date>2018&#x2f;03&#x2f;04 01&#x3a;23&#x3a;22.355</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;03&#x2f;04 00&#x3a;11&#x3a;22.705</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2018&#x2f;03&#x2f;04 01&#x3a;23&#x3a;22.355</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -124,10 +124,14 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Hechos Nuevos</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>DesempanoPersonal</from><to>existentes</to><enabled>Y</enabled> </hop>
+  <hop> <from>Actualizar nuevos</from><to>Nuevos</to><enabled>Y</enabled> </hop>
+  <hop> <from>existentes</from><to>Merge Rows &#x28;diff&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Nuevos</from><to>Merge Rows &#x28;diff&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Rows &#x28;diff&#x29;</from><to>Synchronize after merge</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Hechos Nuevos</name>
+    <name>DesempanoPersonal</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -138,7 +142,7 @@
            <schema_name/>
            </partitioning>
     <connection>rent_films</connection>
-    <sql>select dp.idpersonal as personal_id, dt.idtiempopago as tiempopago_id, desempenno.fecha&#x3a;&#x3a;date, &#xd;&#xa;sum&#x28;&#x28;CASE WHEN &#x28;desempenno.pago &#x3d; 0 and desempenno.renta&#x3c;&#x3e;-1&#x29; THEN 1 ELSE 0 END&#x29;&#x29; as cantidad_alquiler,&#xd;&#xa;sum&#x28;desempenno.pago&#x29; as monto_alquiler from&#xd;&#xa;&#x28;select rental_date as fecha, staff_id as staff, 0 as pago, rental_id as renta from rental union &#xd;&#xa;&#x28;select payment_date, staff_id, amount, -1 from payment&#x29;&#x29; as desempenno&#xd;&#xa;join dwh.personal dp on&#x28;desempenno.staff&#x3d;dp.original_personal_id&#x29;&#xd;&#xa;join dwh.tiempopago dt on&#x28;desempenno.fecha&#x3a;&#x3a;date&#x3d;dt.fecha&#x29;&#xd;&#xa;group by dp.idpersonal, dt.idtiempopago, desempenno.fecha&#x3a;&#x3a;date order by desempenno.fecha&#x3a;&#x3a;date&#x3b;</sql>
+    <sql>SELECT&#xd;&#xa;  personal_id&#xd;&#xa;, tiempopago_id&#xd;&#xa;, cantidad_alquiler&#xd;&#xa;, monto_alquiler&#xd;&#xa;FROM dwh.hechos_desempeno&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -146,15 +150,157 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>176</xloc>
-      <yloc>128</yloc>
+      <xloc>208</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>Actualizar nuevos</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>rent_films</connection>
+    <sql>select dp.idpersonal as personal_id, dt.idtiempopago as tiempopago_id, &#xd;&#xa;sum&#x28;&#x28;CASE WHEN &#x28;desempenno.pago &#x3d; 0 and desempenno.renta&#x3c;&#x3e;-1&#x29; THEN 1 ELSE 0 END&#x29;&#x29; as cantidad_alquiler,&#xd;&#xa;sum&#x28;desempenno.pago&#x29; as monto_alquiler from&#xd;&#xa;&#x28;select rental_date as fecha, staff_id as staff, 0 as pago, rental_id as renta from rental union &#xd;&#xa;&#x28;select payment_date, staff_id, amount, -1 from payment&#x29;&#x29; as desempenno&#xd;&#xa;join dwh.personal dp on&#x28;desempenno.staff&#x3d;dp.original_personal_id&#x29;&#xd;&#xa;join dwh.tiempopago dt on&#x28;desempenno.fecha&#x3a;&#x3a;date&#x3d;dt.fecha&#x29;&#xd;&#xa;group by dp.idpersonal, dt.idtiempopago&#x3b;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>208</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>existentes</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>personal_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>tiempopago_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>336</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Nuevos</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>personal_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>tiempopago_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>336</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Rows &#x28;diff&#x29;</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <keys>
+      <key>personal_id</key>
+      <key>tiempopago_id</key>
+      <key>cantidad_alquiler</key>
+      <key>monto_alquiler</key>
+    </keys>
+    <values>
+      <value>personal_id</value>
+      <value>tiempopago_id</value>
+      <value>cantidad_alquiler</value>
+      <value>monto_alquiler</value>
+    </values>
+<flag_field>flagfield</flag_field>
+<reference>existentes</reference>
+<compare>Nuevos</compare>
+    <compare>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>464</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Synchronize after merge</name>
+    <type>SynchronizeAfterMerge</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -164,44 +310,55 @@
            <schema_name/>
            </partitioning>
     <connection>dwh_rent_films</connection>
-    <schema/>
-    <table>hechos_desempeno</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
+    <commit>100</commit>
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>personal_id</column_name>
-          <stream_name>personal_id</stream_name>
-        </field>
-        <field>
-          <column_name>tiempopago_id</column_name>
-          <stream_name>tiempopago_id</stream_name>
-        </field>
-        <field>
-          <column_name>cantidad_alquiler</column_name>
-          <stream_name>cantidad_alquiler</stream_name>
-        </field>
-        <field>
-          <column_name>monto_alquiler</column_name>
-          <stream_name>monto_alquiler</stream_name>
-        </field>
-    </fields>
+    <use_batch>N</use_batch>
+    <perform_lookup>N</perform_lookup>
+    <operation_order_field>flagfield</operation_order_field>
+    <order_insert>new</order_insert>
+    <order_update>changed</order_update>
+    <order_delete>deleted</order_delete>
+    <lookup>
+      <schema/>
+      <table>desmpenopersonal</table>
+      <key>
+        <name>personal_id</name>
+        <field>personal_id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>tiempopago_id</name>
+        <field>tiempopago_id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>personal_id</name>
+        <rename>personal_id</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>tiempopago_id</name>
+        <rename>tiempopago_id</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>cantidad_alquiler</name>
+        <rename>cantidad_alquiler</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>monto_alquiler</name>
+        <rename>monto_alquiler</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>416</xloc>
-      <yloc>128</yloc>
+      <xloc>656</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
