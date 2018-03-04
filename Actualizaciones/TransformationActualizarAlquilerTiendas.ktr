@@ -148,9 +148,6 @@
       <key>idcategoria</key>
     </keys>
     <values>
-      <value>idtiempo</value>
-      <value>idtienda</value>
-      <value>idcategoria</value>
       <value>cantidad_alquiler</value>
     </values>
 <flag_field>flagfield</flag_field>
