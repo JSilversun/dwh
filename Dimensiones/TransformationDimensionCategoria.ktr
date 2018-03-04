@@ -157,7 +157,7 @@
           <update>Insert</update>
         </field>
         <return>
-          <name>id</name>
+          <name>idCategoria</name>
           <rename/>
           <creation_method>tablemax</creation_method>
           <use_autoinc>N</use_autoinc>
@@ -174,8 +174,8 @@
       <start_date_field_name/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>336</xloc>
-      <yloc>128</yloc>
+      <xloc>350</xloc>
+      <yloc>125</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
