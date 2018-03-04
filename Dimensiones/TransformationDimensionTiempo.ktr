@@ -178,7 +178,7 @@
           <update>Insert</update>
         </field>
         <return>
-          <name>id</name>
+          <name>idTiempo</name>
           <rename/>
           <creation_method>tablemax</creation_method>
           <use_autoinc>N</use_autoinc>
