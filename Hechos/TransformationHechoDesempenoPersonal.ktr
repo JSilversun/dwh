@@ -124,7 +124,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Hechos Nuevos</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Hechos Nuevos</from><to>Hecho DesempenoPersonal</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Hechos Nuevos</name>
@@ -153,7 +153,7 @@
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>Hecho DesempenoPersonal</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
