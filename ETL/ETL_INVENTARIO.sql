@@ -25,18 +25,28 @@ BEGIN
      EXIT WHEN NOT FOUND;
      
      --Para calcular el total de copias en inventario
-     SELECT COUNT(*) INTO v_total FROM inventory i WHERE i.film_id=v_original_pelicula_id;
+     SELECT COUNT(*) INTO v_total 
+     FROM inventory i 
+     WHERE i.film_id=v_original_pelicula_id;
      
      --Para calcular cuantas estan rentadas en el momento y poder calcular las disponibles: Total-rentadas
-     SELECT COUNT(*) INTO v_rentadas FROM rental r JOIN inventory i on r.inventory_id = i.inventory_id AND i.film_id=v_original_pelicula_id
-     WHERE r.rental_date::date<=v_fecha and (r.return_date::date>v_fecha OR r.return_date is null);
+     SELECT COUNT(*) INTO v_rentadas 
+     FROM rental r 
+     JOIN inventory i on r.inventory_id = i.inventory_id 
+     AND i.film_id=v_original_pelicula_id
+     WHERE r.rental_date::date<=v_fecha 
+     and (r.return_date::date>v_fecha OR r.return_date is null);
      
      --Calcular cuantas veces al rentar una pelicula en un determinado dia, estaba sin stock 3 horas antes
      SELECT COUNT(*) FILTER (
          WHERE 
      	(v_total-
-            (SELECT COUNT(*) FROM rental ren JOIN inventory inv on ren.inventory_id = inv.inventory_id AND inv.film_id=v_original_pelicula_id
-                WHERE ren.rental_date<=r.rental_date-interval '3 hours' and (ren.return_date>r.rental_date-interval '3 hours' OR ren.return_date is null)
+            (SELECT COUNT(*) 
+            FROM rental ren 
+            JOIN inventory inv on ren.inventory_id = inv.inventory_id 
+            AND inv.film_id=v_original_pelicula_id
+            WHERE ren.rental_date<=r.rental_date-interval '3 hours' 
+            and (ren.return_date>r.rental_date-interval '3 hours' OR ren.return_date is null)
             )
         )=0) INTO v_incidencias 
      FROM rental r JOIN inventory i on r.inventory_id = i.inventory_id AND i.film_id=v_original_pelicula_id
@@ -44,7 +54,11 @@ BEGIN
      
      --Se retorna la primera fila
      
-     SELECT v_idtiempo, v_original_pelicula_id, v_alquileres, (v_total-v_rentadas), round(v_alquileres::decimal/v_total,2)::float, v_incidencias into row;
+     SELECT v_idtiempo, 
+        v_original_pelicula_id, 
+        v_alquileres, (v_total-v_rentadas), 
+        round(v_alquileres::decimal/v_total,2)::float, 
+        v_incidencias into row;
       RETURN next row;
      END LOOP;
 END;
