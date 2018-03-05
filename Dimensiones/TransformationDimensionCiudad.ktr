@@ -76,7 +76,7 @@
   </notepads>
   <connection>
     <name>dwh_rent_films</name>
-    <server>127.0.0.1</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>rent_films</database>
@@ -101,7 +101,7 @@
   </connection>
   <connection>
     <name>rent_films</name>
-    <server>127.0.0.1</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>rent_films</database>
@@ -170,8 +170,8 @@
         <return>
           <name>idCiudad</name>
           <rename/>
-          <creation_method>autoinc</creation_method>
-          <use_autoinc>Y</use_autoinc>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
           <version>version</version>
         </return>
       </fields>
